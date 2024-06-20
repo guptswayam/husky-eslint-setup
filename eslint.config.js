@@ -1,7 +1,7 @@
 // eslint.config.js
 import js from "@eslint/js";
 import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
-import globals from 'globals';
+import globals from "globals";
 
 export default [
   js.configs.recommended,
@@ -23,11 +23,13 @@ export default [
     },
   },
   {
-    ignores: ["src/ignore.js"],
     languageOptions: {
       globals: {
-        ...globals.node
-      }
-    }
+        ...globals.node,
+      },
+    },
+  },
+  {
+    ignores: ["src/ignore.js"],
   },
 ];
