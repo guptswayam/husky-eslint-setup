@@ -7,7 +7,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "hooks:pre-commit": "echo \"Precommit Hook\" && eslint --fix",
-    "prepare": "husky"
+    "prepare": "husky",
+    "start": "node src/index.js"
   },
   "keywords": [],
   "author": "",
