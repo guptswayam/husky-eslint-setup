@@ -4,8 +4,8 @@ import Router from "@koa/router";
 const app = new Koa();
 const router = new Router();
 
-console.log(process.env.npm_package_version)
-console.log(process.env.npm_package_name)
+console.log(process.env.npm_package_version);
+console.log(process.env.npm_package_name);
 
 // More on Koa: https://www.linkedin.com/pulse/building-user-authentication-authorization-apis-koajs-behara-1c
 router.get("/healthcheck", (ctx) => {
