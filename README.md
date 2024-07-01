@@ -65,5 +65,6 @@
 2. Babel converts ECMAScript 2015+ code into a backwards compatible version of JavaScript
 3. `.babelrc` file and three extra dependencies would be required for first option: `babel-jest`, `@babel/core` and `@babel/preset-env`
 4. With Second option, we need to change jest test command: `node --experimental-vm-modules node_modules/jest/bin/jest.js src`
+5. `globals.jest` global should be set in eslint config to enable support for jest global functions and variables.
 
 **Note**: VSCode doesn't support jest intellisense without @types/jest, so we might need to setup jsconfig.json file for it in JS(non-TS) project.
