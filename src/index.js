@@ -20,3 +20,5 @@ app.listen(4000, () => {
   app.use(router.allowedMethods());
   console.log("Server Started at port 4000");
 });
+
+export { app, router };

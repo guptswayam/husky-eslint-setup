@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "es6",
+    "baseUrl": ".",
+    "typeRoots": [
+      "/Users/swagupta19/.nvm/versions/node/v18.19.1/lib/node_modules/@types"
+    ],
+    "types": ["jest"]
+  },
+  "exclude": ["node_modules"]
+}
