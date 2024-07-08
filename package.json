@@ -12,7 +12,8 @@
     "lint:fix": "eslint --fix",
     "test:unit": "npx jest src",
     "jest:experimental": "node --experimental-vm-modules node_modules/jest/bin/jest.js src",
-    "test:coverage": "jest src --coverage"
+    "test:coverage": "jest src --coverage",
+    "lint:verify": "eslint"
   },
   "lint-staged": {
     "**/*.js": [
