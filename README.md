@@ -68,3 +68,6 @@
 5. `globals.jest` global should be set in eslint config to enable support for jest global functions and variables.
 
 **Note**: VSCode doesn't support jest intellisense without @types/jest, so we might need to setup jsconfig.json file for it in JS(non-TS) project.
+
+
+## Semantic Release
