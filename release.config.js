@@ -34,7 +34,7 @@ export default {
   releaseRules: [
     {
       type: "test",
-      release: "patch",
+      release: false,
     },
     {
       type: "doc",
@@ -43,6 +43,10 @@ export default {
     {
       type: "refactor",
       release: "patch",
+    },
+    {
+      type: "breaking",
+      release: "major",
     },
   ],
   // parserOpts: {

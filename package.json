@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "type": "module",
   "scripts": {
+    "dev": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1",
     "hooks:pre-commit": "echo \"Precommit Hook\" && lint-staged && npm run test:unit",
     "hooks:pre-push": "npm run test:coverage && echo 'Prepush Hook'",
