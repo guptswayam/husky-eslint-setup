@@ -27,7 +27,8 @@ function configureLogger(processName) {
         break;
     }
 
-    const date = new Date().toLocaleString("en-IN", { dateStyle: "medium" });
+    let date = new Date().toLocaleString("en-US", { dateStyle: "short" });
+    date = date.replace(/\//g, "-");
 
     const filename = `${processName}_${date}_${fileDifferentiator}.log`; // log file rotation for each new date
 

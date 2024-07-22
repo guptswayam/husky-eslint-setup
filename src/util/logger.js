@@ -6,20 +6,26 @@ class Logger {
   }
 
   info(...args) {
-    this.log("INFO", args.join(" "));
+    this.log("INFO", args);
   }
 
-  warrn(...args) {
-    this.log("WARN", args.join(" "));
+  warn(...args) {
+    this.log("WARN", args);
   }
 
   error(...args) {
-    this.log("WARN", args.join(" "));
+    this.log("WARN", args);
   }
 
-  log(logLevel, data) {
+  log(logLevel, argArray) {
     const callerDetails = this.getCallerFnDetails(4);
     const time = new Date().toISOString();
+
+    const logMessage = argArray
+      .map((el) => {
+        return typeof el === "string" ? el : JSON.stringify(el);
+      })
+      .join(" ");
 
     process.stdout
       .write(
@@ -29,7 +35,7 @@ class Logger {
           " " +
           callerDetails.functionName +
           " " +
-          (typeof data === "string" ? data : JSON.stringify(data)) +
+          logMessage +
           "\n",
         logLevel
       )
