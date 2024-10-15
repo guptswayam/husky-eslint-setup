@@ -2,6 +2,9 @@ import Koa from "koa";
 import Router from "@koa/router";
 import Logger from "./util/logger.js";
 import "./util/gloabl-error-handling.js";
+import * as util from "util";
+
+const sleep = util.promisify(setTimeout);
 
 const logger = new Logger("hes");
 
@@ -12,38 +15,33 @@ logger.info(process.env.npm_package_version);
 logger.info(process.env.npm_package_name);
 
 // More on Koa: https://www.linkedin.com/pulse/building-user-authentication-authorization-apis-koajs-behara-1c
-router.get("/healthcheck", (ctx) => {
+router.get("/healthcheck", async (ctx, next) => {
   const { isError } = ctx.request.query;
 
   if (isError === "true") {
-    throw ctx.throw(400, "manual error", {
-      errors: [
-        {
-          scope: "query",
-          property: "isError",
-          message: "isError query parameter is set",
-        },
-      ],
-    });
+    throw ctx.throw(400, "manual error");
   }
 
   ctx.status = 200;
   ctx.body = {
     status: "Success",
   };
+
+  await next();
+
+  await sleep(4000);
+  console.log("Swayam");
+
+  return null;
 });
 
 app.use(async function jsonErrorHandler(ctx, next) {
   try {
     await next();
   } catch (err) {
-    logger.warn(err.message, err.errors);
-    ctx.status = err.status || 500;
-    ctx.body = {
-      message: err.message,
-      status: "fail",
-      errors: err.errors,
-    };
+    logger.warn(err);
+    ctx.status = err.status || err.statusCode || 500;
+    ctx.body = { message: err.message };
   }
 });
 

@@ -1,6 +1,6 @@
 import * as fs from "fs";
 
-/** process.stdout.write method implemention
+/** process.stdout.write method implemention, https://github.com/nodejs/node/blob/75fe4f35d4e560f7e98a3be2ca233342532873c0/lib/internal/streams/writable.js#L502
 Writable.prototype.write = function(chunk, encoding, cb) {
   if (encoding != null && typeof encoding === 'function') {
     cb = encoding;

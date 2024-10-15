@@ -75,8 +75,8 @@
   - `npm ci --omit=dev`
 2. So if we are using babel(or webpack etc), we need to traspile code into `dist` folder and push it to production server.
   - On development/local server, we don't need to have the `dist` folder as dev dependencies are installed there.
-3. We couldn't even create final build into dist folder on production server as dev dependencies aren't there, so we need to push it through CI/CD pipeline.
-4. In this project, there is no need to transpile code as we are using babel just to support jest library and jest library itself a dev dependency.
+3. We couldn't even create final build into dist folder on production server as dev dependencies aren't there, so we need to create and push it through CI/CD pipeline.
+4. **Note**: In this project, there is no need to transpile code as we are using babel just to support jest library and jest library itself a dev dependency.
 
 
 ## Semantic Release
